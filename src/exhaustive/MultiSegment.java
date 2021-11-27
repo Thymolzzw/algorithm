@@ -1,4 +1,4 @@
-package task1;
+package exhaustive;
 
 import java.util.Arrays;
 
@@ -28,9 +28,7 @@ public class MultiSegment {
 	public static int[] getShortestPath( ) {
 		int[] sizes = new int[]{3, 3, 2};
 		Digital digital = new Digital(sizes);
-		int[] shortestPath = new int[sizes.length];
-		Arrays.fill(shortestPath, 0);
-		shortestPath[shortestPath.length-1] = -1;
+		int[] shortestPath = null;
 		int short_len = Integer.MAX_VALUE;
 		while(digital.next()){
 			int[] states=digital.getStates();

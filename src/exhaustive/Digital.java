@@ -1,11 +1,13 @@
-package task1;
+package exhaustive;
+
+import com.sun.javaws.IconUtil;
 
 public class Digital {
     private int[] sizes;
     private int[] ans;
 
-    // åˆå§‹åŒ–ä¸€ä¸ªDigitalç±»ã€‚
-    // sizesæ˜¯ä¸åŒä½ç½®ä¸Šå¯ä»¥çŠ¶æ€çš„æ•°é‡ã€‚
+    // ³õÊ¼»¯Ò»¸öDigitalÀà¡£
+    // sizesÊÇ²»Í¬Î»ÖÃÉÏ¿ÉÒÔ×´Ì¬µÄÊýÁ¿¡£
     public Digital(int[] sizes) {
         this.sizes = sizes;
         this.ans = new int[this.sizes.length];
@@ -15,31 +17,31 @@ public class Digital {
         this.ans[this.ans.length-1] = -1;
     }
 
-    // ç”±å½“å‰çš„çŠ¶æ€åºåˆ—è½¬æ¢åˆ°ä¸‹ä¸€ä¸ªçŠ¶æ€åºåˆ—ã€‚
-    // å¦‚æžœäº§ç”Ÿäº†æœ‰æ•ˆçš„åºåˆ—ï¼Œåˆ™è¿”å›ž trueï¼›å¦åˆ™è¿”å›žfalseã€‚
+    // ÓÉµ±Ç°µÄ×´Ì¬ÐòÁÐ×ª»»µ½ÏÂÒ»¸ö×´Ì¬ÐòÁÐ¡£
+    // Èç¹û²úÉúÁËÓÐÐ§µÄÐòÁÐ£¬Ôò·µ»Ø true£»·ñÔò·µ»Øfalse¡£
     public boolean next() {
         for(int i=this.sizes.length-1;i>=0;i--){
             if(this.ans[i]<this.sizes[i]-1){
-                // å­˜åœ¨ä¸‹ä¸€çŠ¶æ€
+                // ´æÔÚÏÂÒ»×´Ì¬
                 return true;
             }
         }
-        // æ¯ä¸ªä½ç½®éƒ½ä¸å­˜åœ¨ä¸‹ä¸€çŠ¶æ€
+        // Ã¿¸öÎ»ÖÃ¶¼²»´æÔÚÏÂÒ»×´Ì¬
         return false;
     }
-    // èŽ·å–å½“å‰çš„çŠ¶æ€åºåˆ—ã€‚
-    // ä¸ç®¡next()æ–¹æ³•è¿”å›žçš„å€¼æ˜¯trueè¿˜æ˜¯falseï¼Œéƒ½è¦è¿”å›žå½“å‰çš„çŠ¶æ€åºåˆ—ã€‚
+    // »ñÈ¡µ±Ç°µÄ×´Ì¬ÐòÁÐ¡£
+    // ²»¹Ünext()·½·¨·µ»ØµÄÖµÊÇtrue»¹ÊÇfalse£¬¶¼Òª·µ»Øµ±Ç°µÄ×´Ì¬ÐòÁÐ¡£
     public int[] getStates() {
-        // èŽ·å¾—ä»ŽåŽå‘å‰ç¬¬ä¸€ä¸ªéžæœ€ç»ˆçŠ¶æ€çš„ä½ç½®
+        // »ñµÃ´ÓºóÏòÇ°µÚÒ»¸ö·Ç×îÖÕ×´Ì¬µÄÎ»ÖÃ
         int p = this.sizes.length-1;
         while(this.ans[p]>=this.sizes[p]-1){
             p--;
             if(p<0) break;
         }
-        // ä»ŽåŽå‘å‰ä¸å­˜åœ¨éžæœ€ç»ˆçŠ¶æ€çš„ä½ç½®
+        // ´ÓºóÏòÇ°²»´æÔÚ·Ç×îÖÕ×´Ì¬µÄÎ»ÖÃ
         if(p<0) return null;
-        this.ans[p]+=1;  // è¿›ä½
-        for(int i=p+1;i<this.ans.length;i++){   // ä½ç½®è¿›ä½åŽéœ€è¦æ¸…é›¶
+        this.ans[p]+=1;  // ½øÎ»
+        for(int i=p+1;i<this.ans.length;i++){   // Î»ÖÃ½øÎ»ºóÐèÒªÇåÁã
             this.ans[i]=0;
         }
         return this.ans.clone();
@@ -55,5 +57,6 @@ public class Digital {
             }
             System.out.println();
         }
+
     }
 }
