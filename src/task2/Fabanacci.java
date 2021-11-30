@@ -9,8 +9,9 @@ public class Fabanacci {
     }
 
     public static void main(String[] args) {
-        int a = fab(4);
-        System.out.println(a);
+        int a = fab(40);
+        int b = fab(41);
+        System.out.println((double)a/b);
     }
     
 }
