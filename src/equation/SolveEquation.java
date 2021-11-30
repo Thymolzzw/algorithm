@@ -68,7 +68,7 @@ public class SolveEquation {
     // 迭代求解，每次求一个解
     public double doStep(List<Double> coefficient, List<Double> coefficientDerivation, double x){
 
-        while(Math.abs(doCalculation(coefficient, x))>1e-10){
+        while(Math.abs(doCalculation(coefficient, x))>1e-15){
             double step = doCalculation(coefficient, x)/doCalculation(coefficientDerivation, x);
             if(Double.isInfinite(step)) step=Math.random()+0.1;
             x=x-step;
@@ -132,19 +132,26 @@ public class SolveEquation {
 
         // 解方程例子： (x-1)(x-2)(x-3)(x-4)=0
         // 展开后为：24-50x^1+35x^2-10x^3+x^4=0
-        coefficient.add(24.0);
-        coefficient.add(-50.0);
-        coefficient.add(35.0);
-        coefficient.add(-10.0);
-        coefficient.add(1.0);
+        // coefficient.add(24.0);
+        // coefficient.add(-50.0);
+        // coefficient.add(35.0);
+        // coefficient.add(-10.0);
+        // coefficient.add(1.0);
 
 
         // 例子：x*x*(x-1)=0
         // 展开：-x^2+x^3=0
+        coefficient.add(0.0);
+        coefficient.add(0.0);
+        coefficient.add(-1.0);
+        coefficient.add(1.0);
+
+        // x(X-1)(X-1)=0   1x-2X^2+X^3=0 重根
         // coefficient.add(0.0);
-        // coefficient.add(0.0);
-        // coefficient.add(-1.0);
         // coefficient.add(1.0);
+        // coefficient.add(-2.0);
+        // coefficient.add(1.0);
+
         
         SolveEquation solveEquation = new SolveEquation(coefficient);
         System.out.print("方程为：");
