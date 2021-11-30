@@ -58,10 +58,13 @@ public class SolveEquation {
     // 打印方程
     public void printEquation(List<Double> coefficient){
         for(int i=0;i<coefficient.size();i++){
-            System.out.print(coefficient.get(i) + "x^" + (i) + "+");
+            if(i<coefficient.size()-1){
+                System.out.print(coefficient.get(i) + "x^" + (i) + "+");
+            }else{
+                System.out.print(coefficient.get(i) + "x^" + (i));
+            }
         }
-        // System.out.println(this.coefficient.get(this.coefficient.size()-1));
-        System.out.println();
+        System.out.println(" = 0");
     }
 
     // 迭代求解
