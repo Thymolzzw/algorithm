@@ -70,7 +70,7 @@ public class SolveEquation {
 
         while(Math.abs(doCalculation(coefficient, x))>1e-15){
             double step = doCalculation(coefficient, x)/doCalculation(coefficientDerivation, x);
-            if(Double.isInfinite(step)) step=Math.random()+0.1;
+            if(Double.isInfinite(step)) step=Math.random()+0.1;  // 导数为零异常，最近设置step
             x=x-step;
         }
         return x;
@@ -141,16 +141,16 @@ public class SolveEquation {
 
         // 例子：x*x*(x-1)=0
         // 展开：-x^2+x^3=0
-        coefficient.add(0.0);
-        coefficient.add(0.0);
-        coefficient.add(-1.0);
-        coefficient.add(1.0);
+        // coefficient.add(0.0);
+        // coefficient.add(0.0);
+        // coefficient.add(-1.0);
+        // coefficient.add(1.0);
 
         // x(X-1)(X-1)=0   1x-2X^2+X^3=0 重根
-        // coefficient.add(0.0);
-        // coefficient.add(1.0);
-        // coefficient.add(-2.0);
-        // coefficient.add(1.0);
+        coefficient.add(0.0);
+        coefficient.add(1.0);
+        coefficient.add(-2.0);
+        coefficient.add(1.0);
 
         
         SolveEquation solveEquation = new SolveEquation(coefficient);
@@ -159,8 +159,8 @@ public class SolveEquation {
         System.out.print("求导：");
         solveEquation.printEquation(solveEquation.getCoefficientDerivation());
 
-        List<Double> ans = solveEquation.solveEquation(0.0, 0.5);
-        System.out.print("解为：");
+        List<Double> ans = solveEquation.solveEquation(0.0, 1.0);
+        System.out.print("解为："); 
         System.out.println(ans);
 
     }
