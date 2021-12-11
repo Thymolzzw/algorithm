@@ -3,9 +3,9 @@ package equation;
 import java.security.Principal;
 import java.util.*;
 
-import exhaustive.Digital;
 import sun.plugin2.message.PrintAppletMessage;
 import equation.SolveEquation;
+import exhaustive.Digital;
 
 public class jt {
     //生成随机根

@@ -151,7 +151,6 @@ public class SolveEquation {
         // double x = Math.random()*(x_upper-x_lower)+x_lower;
         // double x = (x_lower+x_upper)/2.0;
         double x = dichotomy(coefficient, x_lower, x_upper);
-        System.out.println(x);
 
         // 计算零解
         while(this.doCalculation(coefficient, 0.0)>-1e-10&&this.doCalculation(coefficient, 0.0)<1e-10){
